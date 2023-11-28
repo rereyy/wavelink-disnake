@@ -6,6 +6,5 @@ sphinxcontrib-websupport
 Pygments
 furo
 disnake>=2.0.1
-sphinxext-opengraph
 sphinx-hoverxref
 sphinxcontrib_trio
