@@ -8,13 +8,13 @@
 [![Github License](https://img.shields.io/github/license/PythonistaGuild/Wavelink)](LICENSE)
 [![Lavalink Version](https://img.shields.io/badge/Lavalink-v4.0%2B-blue?color=%23FB7713)](https://lavalink.dev)
 ![Lavalink Plugins](https://img.shields.io/badge/Lavalink_Plugins-Native_Support-blue?color=%2373D673)
-[![Discord](https://img.shields.io/discord/490948346773635102?logo=discord&logoColor=%23FFF&label=Pythonista&labelColor=%235865F2&color=%232B2D31)](https://discord.gg/RAKc3HF)
+[![disnake](https://img.shields.io/disnake/490948346773635102?logo=disnake&logoColor=%23FFF&label=Pythonista&labelColor=%235865F2&color=%232B2D31)](https://discord.gg/RAKc3HF)
 
 
 </div>
 
 
-Wavelink is a robust and powerful Lavalink wrapper for [Discord.py](https://github.com/Rapptz/discord.py)
+Wavelink is a robust and powerful Lavalink wrapper for [disnake](https://github.com/Rapptz/disnake)
 Wavelink features a fully asynchronous API that's intuitive and easy to use.
 
 
@@ -27,7 +27,7 @@ Wavelink features a fully asynchronous API that's intuitive and easy to use.
 
 - Full asynchronous design.
 - Lavalink v4+ Supported with REST API.
-- discord.py v2.0.0+ Support.
+- disnake v2.0.0+ Support.
 - Advanced AutoPlay and track recommendations for continuous play.
 - Object orientated design with stateful objects and payloads.
 - Fully annotated and complies with Pyright strict typing.
@@ -47,9 +47,9 @@ Wavelink features a fully asynchronous API that's intuitive and easy to use.
 ## Support
 
 For support using WaveLink, please join the official [Support Server](https://discord.gg/RAKc3HF) on
-[Discord](https://discordapp.com)
+[disnake](https://disnakeapp.com)
 
-[![Discord Banner](https://discordapp.com/api/guilds/490948346773635102/widget.png?style=banner2)](https://discord.gg/RAKc3HF)
+[![disnake Banner](https://disnakeapp.com/api/guilds/490948346773635102/widget.png?style=banner2)](https://discord.gg/RAKc3HF)
 
 
 ## Installation
@@ -88,4 +88,4 @@ For spotify support, simply install and use [LavaSrc](https://github.com/topi314
 
 - Wavelink **3** is compatible with Lavalink **v4+**.
 - Wavelink has built in support for Lavalink Plugins including LavaSrc and SponsorBlock.
-- Wavelink is fully typed in compliance with Pyright Strict, though some nuances remain between discord.py and wavelink.
+- Wavelink is fully typed in compliance with Pyright Strict, though some nuances remain between disnake and wavelink.

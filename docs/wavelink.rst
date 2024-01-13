@@ -13,7 +13,7 @@ Event Reference
 WaveLink Events are events dispatched when certain events happen in Lavalink and Wavelink.
 All events must be coroutines.
 
-Events are dispatched via discord.py and as such can be used with discord.py listener syntax.
+Events are dispatched via disnake and as such can be used with disnake listener syntax.
 All Track Events receive the appropriate payload.
 
 
@@ -244,9 +244,9 @@ Enums
 .. autoclass:: TrackSource
     :members:
 
-.. attributetable:: DiscordVoiceCloseType
+.. attributetable:: disnakeVoiceCloseType
 
-.. autoclass:: DiscordVoiceCloseType
+.. autoclass:: disnakeVoiceCloseType
     :members:
 
 .. attributetable:: AutoPlayMode
@@ -425,7 +425,7 @@ Exceptions
 
 .. py:exception:: InvalidClientException
 
-    Exception raised when an invalid :class:`discord.Client`
+    Exception raised when an invalid :class:`disnake.Client`
     is provided while connecting a :class:`wavelink.Node`.
 
 .. py:exception:: AuthorizationFailedException

@@ -6,13 +6,13 @@
 
    <p class="index-featuring">
 
-      <b>A fully asynchronous <a href="https://www.python.org/">Python</a> Lavalink wrapper for discord.py</b>
+      <b>A fully asynchronous <a href="https://www.python.org/">Python</a> Lavalink wrapper for disnake</b>
 
       <h4>Featuring:</h4>
       <ul class="index-featuring-list">
          <li>Full asynchronous design.</li>
          <li>Lavalink v4+ Supported with REST API.</li>
-         <li>discord.py v2.0.0+ Support.</li>
+         <li>disnake v2.0.0+ Support.</li>
          <li>Advanced AutoPlay and track recommendations for continuous play.</li>
          <li>Object orientated design with stateful objects and payloads.</li>
          <li>Fully annotated and complies with Pyright strict typing.</li>
@@ -47,8 +47,8 @@
 
    <h3 class="index-section-header">Getting Help</h3>
    <hr class="featuring-hr">
-   Consider joining the Official Discord server for a fast response to help.<br>
-   <a href="https://discord.gg/RAKc3HF"><img src="https://discordapp.com/api/guilds/490948346773635102/widget.png?style=banner2"></a><br><br>
+   Consider joining the Official disnake server for a fast response to help.<br>
+   <a href="https://discord.gg/RAKc3HF"><img src="https://disnakeapp.com/api/guilds/490948346773635102/widget.png?style=banner2"></a><br><br>
 
    <b>For issues and contributing with the library, visit:</b> <a href="https://github.com/PythonistaGuild/Wavelink">GitHub</a>
 

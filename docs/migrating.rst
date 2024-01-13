@@ -96,7 +96,7 @@ Connecting in version **3** is similar to version **2**.
 
 .. important::
     
-    It is recommended to use discord.py ``setup_hook`` to connect your nodes.
+    It is recommended to use disnake ``setup_hook`` to connect your nodes.
 
 
 .. code:: python3
@@ -186,7 +186,7 @@ To send track updates or do player updates, consider using :func:`wavelink.on_wa
         original: wavelink.Playable | None = payload.original
         track: wavelink.Playable = payload.track
 
-        embed: discord.Embed = discord.Embed(title="Now Playing")
+        embed: disnake.Embed = disnake.Embed(title="Now Playing")
         embed.description = f"**{track.title}** by `{track.author}`"
 
         if track.artwork:

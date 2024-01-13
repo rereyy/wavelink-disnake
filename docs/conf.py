@@ -105,7 +105,7 @@ source_suffix = ".rst"
 
 intersphinx_mapping = {
     "py": ("https://docs.python.org/3", None),
-    "dpy": ("https://discordpy.readthedocs.io/en/stable/", None),
+    "dpy": ("https://disnakepy.readthedocs.io/en/stable/", None),
 }
 
 extlinks = {

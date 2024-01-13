@@ -28,7 +28,7 @@ from typing import TYPE_CHECKING, cast
 
 import wavelink
 
-from .enums import DiscordVoiceCloseType
+from .enums import disnakeVoiceCloseType
 from .filters import Filters
 from .tracks import Playable
 
@@ -179,17 +179,17 @@ class WebsocketClosedEventPayload:
     ----------
     player: :class:`~wavelink.Player` | None
         The player associated with this event. Could be None.
-    code: :class:`wavelink.DiscordVoiceCloseType`
+    code: :class:`wavelink.disnakeVoiceCloseType`
         The close code enum value.
     reason: str
         The reason the websocket was closed.
     by_remote: bool
-        ``True`` if discord closed the websocket. ``False`` otherwise.
+        ``True`` if disnake closed the websocket. ``False`` otherwise.
     """
 
     def __init__(self, player: Player | None, code: int, reason: str, by_remote: bool) -> None:
         self.player = player
-        self.code: DiscordVoiceCloseType = DiscordVoiceCloseType(code)
+        self.code: disnakeVoiceCloseType = disnakeVoiceCloseType(code)
         self.reason = reason
         self.by_remote = by_remote
 
@@ -208,7 +208,7 @@ class PlayerUpdateEventPayload:
     connected: bool
         Whether Lavalink is connected to the voice gateway.
     ping: int
-        The ping of the node to the Discord voice server in milliseconds (-1 if not connected).
+        The ping of the node to the disnake voice server in milliseconds (-1 if not connected).
     """
 
     def __init__(self, player: Player | None, state: PlayerState) -> None:
@@ -266,7 +266,7 @@ class StatsEventFrames:
     Attributes
     ----------
     sent: int
-        The amount of frames sent to Discord.
+        The amount of frames sent to disnake.
     nulled: int
         The amount of frames that were nulled.
     deficit: int
@@ -356,7 +356,7 @@ class PlayerStatePayload:
     connected: bool
         Whether Lavalink is connected to the voice gateway.
     ping: int
-        The ping of the node to the Discord voice server in milliseconds (-1 if not connected).
+        The ping of the node to the disnake voice server in milliseconds (-1 if not connected).
     """
 
     def __init__(self, data: PlayerState) -> None:
@@ -368,17 +368,17 @@ class PlayerStatePayload:
 
 class VoiceStatePayload:
     """Represents the VoiceState information received via :meth:`~wavelink.Node.fetch_player_info` or
-    :meth:`~wavelink.Node.fetch_players`. This is the voice state information received via Discord and sent to your
+    :meth:`~wavelink.Node.fetch_players`. This is the voice state information received via disnake and sent to your
     Lavalink node.
 
     Attributes
     ----------
     token: str | None
-        The Discord voice token authenticated with. This is not the same as your bots token. Could be ``None``.
+        The disnake voice token authenticated with. This is not the same as your bots token. Could be ``None``.
     endpoint: str | None
-        The Discord voice endpoint connected to. Could be ``None``.
+        The disnake voice endpoint connected to. Could be ``None``.
     session_id: str | None
-        The Discord voice session ID autheticated with. Could be ``None``.
+        The disnake voice session ID autheticated with. Could be ``None``.
     """
 
     def __init__(self, data: VoiceStateResponse) -> None:
@@ -403,7 +403,7 @@ class PlayerResponsePayload:
     state: :class:`wavelink.PlayerStatePayload`
         The current state of the player. See: :class:`wavelink.PlayerStatePayload`.
     voice_state: :class:`wavelink.VoiceStatePayload`
-        The voice state infomration received via Discord and sent to Lavalink. See: :class:`wavelink.VoiceStatePayload`.
+        The voice state infomration received via disnake and sent to Lavalink. See: :class:`wavelink.VoiceStatePayload`.
     filters: :class:`wavelink.Filters`
         The :class:`wavelink.Filters` currently associated with this player.
     """

@@ -23,7 +23,7 @@ SOFTWARE.
 """
 import enum
 
-__all__ = ("NodeStatus", "TrackSource", "DiscordVoiceCloseType", "AutoPlayMode", "QueueMode")
+__all__ = ("NodeStatus", "TrackSource", "disnakeVoiceCloseType", "AutoPlayMode", "QueueMode")
 
 
 class NodeStatus(enum.Enum):
@@ -62,8 +62,8 @@ class TrackSource(enum.Enum):
     SoundCloud = 2
 
 
-class DiscordVoiceCloseType(enum.Enum):
-    """Enum representing the various Discord Voice Websocket Close Codes.
+class disnakeVoiceCloseType(enum.Enum):
+    """Enum representing the various disnake Voice Websocket Close Codes.
 
     Attributes
     ----------
@@ -95,7 +95,7 @@ class DiscordVoiceCloseType(enum.Enum):
         4016
     """
 
-    CLOSE_NORMAL = 1000  # Not Discord but standard websocket
+    CLOSE_NORMAL = 1000  # Not disnake but standard websocket
     UNKNOWN_OPCODE = 4001
     FAILED_DECODE_PAYLOAD = 4002
     NOT_AUTHENTICATED = 4003

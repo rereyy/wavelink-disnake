@@ -31,9 +31,9 @@ from collections import deque
 from typing import TYPE_CHECKING, Any, TypeAlias
 
 import async_timeout
-import discord
-from discord.abc import Connectable
-from discord.utils import MISSING
+import disnake
+from disnake.abc import Connectable
+from disnake.utils import MISSING
 
 import wavelink
 
@@ -56,15 +56,15 @@ from .queue import Queue
 from .tracks import Playable, Playlist
 
 if TYPE_CHECKING:
-    from discord.types.voice import GuildVoiceState as GuildVoiceStatePayload
-    from discord.types.voice import VoiceServerUpdate as VoiceServerUpdatePayload
+    from disnake.types.voice import GuildVoiceState as GuildVoiceStatePayload
+    from disnake.types.voice import VoiceServerUpdate as VoiceServerUpdatePayload
     from typing_extensions import Self
 
     from .node import Node
     from .types.request import Request as RequestPayload
     from .types.state import PlayerVoiceState, VoiceState
 
-    VocalGuildChannel = discord.VoiceChannel | discord.StageChannel
+    VocalGuildChannel = disnake.VoiceChannel | disnake.StageChannel
 
 logger: logging.Logger = logging.getLogger(__name__)
 
@@ -72,22 +72,22 @@ logger: logging.Logger = logging.getLogger(__name__)
 T_a: TypeAlias = list[Playable] | Playlist
 
 
-class Player(discord.VoiceProtocol):
-    """The Player is a :class:`discord.VoiceProtocol` used to connect your :class:`discord.Client` to a
-    :class:`discord.VoiceChannel`.
+class Player(disnake.VoiceProtocol):
+    """The Player is a :class:`disnake.VoiceProtocol` used to connect your :class:`disnake.Client` to a
+    :class:`disnake.VoiceChannel`.
 
     The player controls the music elements of the bot including playing tracks, the queue, connecting etc.
     See Also: The various methods available.
 
     .. note::
 
-        Since the Player is a :class:`discord.VoiceProtocol`, it is attached to the various ``voice_client`` attributes
-        in discord.py, including ``guild.voice_client``, ``ctx.voice_client`` and ``interaction.voice_client``.
+        Since the Player is a :class:`disnake.VoiceProtocol`, it is attached to the various ``voice_client`` attributes
+        in disnake, including ``guild.voice_client``, ``ctx.voice_client`` and ``interaction.voice_client``.
     """
 
     channel: VocalGuildChannel
 
-    def __call__(self, client: discord.Client, channel: VocalGuildChannel) -> Self:
+    def __call__(self, client: disnake.Client, channel: VocalGuildChannel) -> Self:
         super().__init__(client, channel)
 
         self._guild = channel.guild
@@ -95,12 +95,12 @@ class Player(discord.VoiceProtocol):
         return self
 
     def __init__(
-        self, client: discord.Client = MISSING, channel: Connectable = MISSING, *, nodes: list[Node] | None = None
+        self, client: disnake.Client = MISSING, channel: Connectable = MISSING, *, nodes: list[Node] | None = None
     ) -> None:
         super().__init__(client, channel)
 
-        self.client: discord.Client = client
-        self._guild: discord.Guild | None = None
+        self.client: disnake.Client = client
+        self._guild: disnake.Guild | None = None
 
         self._voice_state: PlayerVoiceState = {"voice": {}}
 
@@ -456,8 +456,8 @@ class Player(discord.VoiceProtocol):
         return self._node
 
     @property
-    def guild(self) -> discord.Guild | None:
-        """Returns the :class:`Player`'s associated :class:`discord.Guild`.
+    def guild(self) -> disnake.Guild | None:
+        """Returns the :class:`Player`'s associated :class:`disnake.Guild`.
 
         Could be None if this :class:`Player` has not been connected.
         """
@@ -508,7 +508,7 @@ class Player(discord.VoiceProtocol):
 
     @property
     def ping(self) -> int:
-        """Returns the ping in milliseconds as int between your connected Lavalink Node and Discord (Players Channel).
+        """Returns the ping in milliseconds as int between your connected Lavalink Node and disnake (Players Channel).
 
         Returns ``-1`` if no player update event has been received or the player is not connected.
         """
@@ -616,10 +616,10 @@ class Player(discord.VoiceProtocol):
 
         .. warning::
 
-            Do not use this method directly on the player. See: :meth:`discord.VoiceChannel.connect` for more details.
+            Do not use this method directly on the player. See: :meth:`disnake.VoiceChannel.connect` for more details.
 
 
-        Pass the :class:`wavelink.Player` to ``cls=`` in :meth:`discord.VoiceChannel.connect`.
+        Pass the :class:`wavelink.Player` to ``cls=`` in :meth:`disnake.VoiceChannel.connect`.
 
 
         Raises
@@ -630,7 +630,7 @@ class Player(discord.VoiceProtocol):
             You tried to connect this player without an appropriate voice channel.
         """
         if self.channel is MISSING:
-            msg: str = 'Please use "discord.VoiceChannel.connect(cls=...)" and pass this Player to cls.'
+            msg: str = 'Please use "disnake.VoiceChannel.connect(cls=...)" and pass this Player to cls.'
             raise InvalidChannelStateException(f"Player tried to connect without a valid channel: {msg}")
 
         if not self._guild:
@@ -660,7 +660,7 @@ class Player(discord.VoiceProtocol):
 
         Parameters
         ----------
-        channel: :class:`discord.VoiceChannel` | :class:`discord.StageChannel`
+        channel: :class:`disnake.VoiceChannel` | :class:`disnake.StageChannel`
             The new channel to move to.
         timeout: float
             The timeout in ``seconds`` before raising. Defaults to 10.0.
@@ -682,7 +682,7 @@ class Player(discord.VoiceProtocol):
             raise InvalidChannelStateException("Player tried to move without a valid guild.")
 
         self._connection_event.clear()
-        voice: discord.VoiceState | None = self.guild.me.voice
+        voice: disnake.VoiceState | None = self.guild.me.voice
 
         if self_deaf is None and voice:
             self_deaf = voice.self_deaf
