@@ -60,10 +60,6 @@ if TYPE_CHECKING:
     from collections import deque
 
     from disnake.abc import Connectable
-    from disnake.types.voice import (
-        GuildVoiceState as GuildVoiceStatePayload,
-        VoiceServerUpdate as VoiceServerUpdatePayload,
-    )
     from typing_extensions import Self
 
     from .node import Node
@@ -659,7 +655,7 @@ class Player(disnake.VoiceProtocol):
 
         self._ping = payload.ping
 
-    async def on_voice_state_update(self, data: GuildVoiceStatePayload, /) -> None:
+    async def on_voice_state_update(self, data: dict, /) -> None:
         channel_id = data["channel_id"]
 
         if not channel_id:
@@ -671,7 +667,7 @@ class Player(disnake.VoiceProtocol):
         self._voice_state["voice"]["session_id"] = data["session_id"]
         self.channel = self.client.get_channel(int(channel_id))  # type: ignore
 
-    async def on_voice_server_update(self, data: VoiceServerUpdatePayload, /) -> None:
+    async def on_voice_server_update(self, data: dict, /) -> None:
         self._voice_state["voice"]["token"] = data["token"]
         self._voice_state["voice"]["endpoint"] = data["endpoint"]
 
